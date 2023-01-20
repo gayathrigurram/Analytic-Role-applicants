@@ -1,0 +1,48 @@
+---
+title: " user patterns"
+author: "Gurram Gayathri"
+date: "1/20/2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(tidyr)
+# reading files
+library(readxl)
+read_excel("Desktop/u379228.xlsx")
+
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Including Plots
+
+```{r pressure, echo=FALSE}
+library (ggplot2)
+ggplot(Q1u16, aes(x = action_type)) +
+    geom_bar()
+#(c) other metrics
+# source
+tab<- table(Q1u16$source)
+prop.table(tab)*100
+#plot histogram
+ggplot(Q1u16, aes(x = source))+
+    geom_bar()
+    
+# box pot
+par(mfrow=c(1,1))
+
+par(oma = c(1, 1, 1, 1)) 
+par(mar = c(4, 1, 4, 1))
+
+boxplot(Q1u16$cursor_time, 
+        horizontal = T,
+        xlab = "cursor time",
+        main="Cursor time")
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
