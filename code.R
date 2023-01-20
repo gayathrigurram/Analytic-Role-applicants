@@ -2,12 +2,11 @@ library(readxl)
 Q1u16 <- read_excel("Desktop/Q1u16.xlsx")
 View(Q1u16)
 tab<- table(Q1u16$source,Q1u16$action_type)
-> tab
-#Overall practice volume and performance (e.g. # of questions answered, % of
-questions answered correctly)
+tab
+#Overall practice volume and performance (e.g. # of questions answered, % ofquestions answered correctly)
 prop.table(tab)*100
-> mosaicplot(user_answer~action_type,data = Q1u16)
-> mosaicplot(user_answer~source,data = Q1u16)
+mosaicplot(user_answer~action_type,data = Q1u16)
+mosaicplot(user_answer~source,data = Q1u16)
 # (b) Learning activity
 tab<- table(Q1u16$action_type)
 prop.table(tab)*100
